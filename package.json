@@ -1,0 +1,16 @@
+{
+  "name": "ynab",
+  "version": "1.0.0",
+  "description": "a test version for YNAB",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AliRezaAsadii/YNAB.git"
+  },
+  "keywords": [],
+  "author": "alireza",
+  "license": "ISC"
+}
