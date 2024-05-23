@@ -10,7 +10,7 @@ const schema = require('.././schemas/userSchema')
 
 //* create User
 
-const User = mongoose.Model("User" , schema)
+const User = mongoose.model("User" , schema)
 
 //* exports
 
