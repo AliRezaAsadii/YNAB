@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use(morgan("dev"))
 
-app.use('/user' , userRouter)
+app.use('/users' , userRouter)
 
 //* exports
 
