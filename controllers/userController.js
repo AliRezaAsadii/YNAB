@@ -16,7 +16,7 @@ exports.getAllUsers = async (req, res) => {
       length: users.length,
       data: { users },
     });
-  } catch {
+  } catch(err) {
     res.status(404).json({
       status: "failed",
       err: { err },
@@ -32,7 +32,7 @@ exports.getUser = async (req, res) => {
       status: "success",
       data: { user },
     });
-  } catch {
+  } catch(err) {
     res.status(404).json({
       status: "failed",
       data: { err },
@@ -48,7 +48,7 @@ exports.createUser = async (req, res) => {
       status: "success",
       data: { newUser },
     });
-  } catch {
+  } catch(err) {
     res.status(404).json({
       status: "failed",
       data: { err },
@@ -64,7 +64,7 @@ exports.updateUser = async (req, res) => {
       status: "success",
       data: { user },
     });
-  } catch {
+  } catch(err) {
     res.status(404).json({
       status: "failed",
       data: { err },
@@ -79,7 +79,7 @@ exports.deleteUser = async (req, res) => {
     res.status(204).json({
       status: "success",
     });
-  } catch {
+  } catch(err) {
     res.status(404).json({
       status: "failed",
       data: { err },
