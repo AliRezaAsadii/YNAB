@@ -3,20 +3,24 @@
 //* imports
 
 const User = require("./../models/userModel");
+const APIFeatures = require("./../util/userAPIFeature");
 
 //* functions
 //! not finished on developing...
 
 exports.getAllUsers = async (req, res) => {
   try {
-    const users = await User.find();
+    const feature = new APIFeatures(User.find(), req.query)
+      .sort()
+      .limitFields();
+    const users = await feature.query;
 
     res.status(200).json({
       status: "success",
       length: users.length,
       data: { users },
     });
-  } catch(err) {
+  } catch (err) {
     res.status(404).json({
       status: "failed",
       err: { err },
@@ -32,7 +36,7 @@ exports.getUser = async (req, res) => {
       status: "success",
       data: { user },
     });
-  } catch(err) {
+  } catch (err) {
     res.status(404).json({
       status: "failed",
       data: { err },
@@ -48,7 +52,7 @@ exports.createUser = async (req, res) => {
       status: "success",
       data: { newUser },
     });
-  } catch(err) {
+  } catch (err) {
     res.status(404).json({
       status: "failed",
       data: { err },
@@ -64,7 +68,7 @@ exports.updateUser = async (req, res) => {
       status: "success",
       data: { user },
     });
-  } catch(err) {
+  } catch (err) {
     res.status(404).json({
       status: "failed",
       data: { err },
@@ -79,7 +83,7 @@ exports.deleteUser = async (req, res) => {
     res.status(204).json({
       status: "success",
     });
-  } catch(err) {
+  } catch (err) {
     res.status(404).json({
       status: "failed",
       data: { err },
