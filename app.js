@@ -8,6 +8,7 @@ const morgan = require("morgan")
 //* imports
 
 const userRouter = require('./routes/userRouter')
+const walletRouter = require('./routes/walletRouter')
 
 //* middleware
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(morgan("dev"))
 
 app.use('/users' , userRouter)
+app.use('/wallet' , walletRouter)
 
 //* exports
 
