@@ -12,4 +12,4 @@ function generateAddress(length) {
   return result;
 }
 
-console.log(generateAddress(16)); 
+exports.generateAddress = generateAddress
