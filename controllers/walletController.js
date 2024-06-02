@@ -2,6 +2,19 @@
 
 const Wallet = require("./../models/walletModel");
 
+exports.getAllWallet = async (req, res) => {
+  try {
+    const wallets = await Wallet.find()
+
+    res.status(200).json({
+      status : "success",
+      data : wallets
+    })
+  } catch (err) {
+    res.status(404).send(err)
+  }
+};
+
 exports.getWallet = async (req, res) => {
   try {
     const wallet = await Wallet.findById(req.params.id);
@@ -22,7 +35,7 @@ exports.createWallet = async (req, res) => {
     res.status(201).json({
       status: "success",
       data: {
-        user: newWallet,
+        wallet: newWallet,
       },
     });
   } catch (err) {
@@ -62,4 +75,3 @@ exports.deleteWallet = async (req, res) => {
     res.status(400).send(err);
   }
 };
-

@@ -21,7 +21,7 @@ const walletSchema = new mongoose.Schema({
   address: {
     type: String,
     unique: true,
-    default: generateAddress(16),
+    default: Math.floor(Math.random() *1000),
     select: false,
   },
   value: {

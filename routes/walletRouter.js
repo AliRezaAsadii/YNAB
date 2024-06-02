@@ -7,6 +7,7 @@ const walletController = require("./../controllers/walletController");
 
 router
   .route("/")
+  .get(walletController.getAllWallet)
   .post(walletController.createWallet);
 
 router
