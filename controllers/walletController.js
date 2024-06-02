@@ -4,14 +4,14 @@ const Wallet = require("./../models/walletModel");
 
 exports.getAllWallet = async (req, res) => {
   try {
-    const wallets = await Wallet.find()
+    const wallets = await Wallet.find();
 
     res.status(200).json({
-      status : "success",
-      data : wallets
-    })
+      status: "success",
+      data: wallets,
+    });
   } catch (err) {
-    res.status(404).send(err)
+    res.status(404).send(err);
   }
 };
 
@@ -29,6 +29,8 @@ exports.getWallet = async (req, res) => {
 };
 
 exports.createWallet = async (req, res) => {
+  console.log(req.body);
+
   const newWallet = await Wallet.create(req.body);
 
   try {

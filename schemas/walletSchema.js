@@ -17,6 +17,7 @@ const walletSchema = new mongoose.Schema({
     required: [true, "a wallet must have name"],
     minlength: [5, "The minimum length for the name is 5 characters"],
     maxlength: [12, "The maximum length for the name is 12 characters"],
+    select : true,
   },
   address: {
     type: String,
